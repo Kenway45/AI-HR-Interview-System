@@ -1,53 +1,72 @@
-# 🤖 AI HR Interview System
+# 🎤 CodeVox
+
+> **"Voice-first interviews. Live coding. Honest scores."**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![React](https://img.shields.io/badge/React-18.0+-61DAFB.svg)](https://reactjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-009688.svg)](https://fastapi.tiangolo.com/)
+[![Open Source](https://img.shields.io/badge/Open%20Source-❤️-brightgreen)](https://github.com/Kenway45/AI-HR-Interview-System)
+[![Self Hosted](https://img.shields.io/badge/Self%20Hosted-🏠-blue)](https://github.com/Kenway45/AI-HR-Interview-System)
 
-A comprehensive, **zero-cost** AI-powered HR interview platform that conducts technical interviews, evaluates candidates, and provides detailed reports using open-source AI models.
+CodeVox is an **open-source, self-hosted AI HR interview practice system**: a speech-first interview agent that asks spoken questions, runs proctored sessions (camera + screen events), includes live coding problems in an embedded IDE, auto-judges code in a secure sandbox, and returns a detailed scorecard and feedback so you can **assess and improve before real interviews**.
 
-![AI HR Interview System](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![CodeVox System](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
-## 🚀 **Live Demo**
+## 🚀 **Get Started with CodeVox**
 
 ```bash
 # One-command setup
 git clone https://github.com/Kenway45/AI-HR-Interview-System.git
 cd AI-HR-Interview-System
-./start_system.sh
+./start_codevox.sh
 ```
 
-**Then visit:** `http://localhost:3000`
+**Then visit:** `http://localhost:3000` and start practicing!
 
-## ✨ **Key Features**
+---
 
-### 🎤 **Speech-First Interface**
-- Real-time speech-to-text with OpenAI Whisper
-- Natural conversation flow
-- Multi-language support
+## 🏆 **Why CodeVox?**
 
-### 🧠 **AI-Powered Interviewer**
-- Context-aware question generation
-- Dynamic follow-up questions
-- Skill-specific technical assessments
+💯 **Practice makes perfect** — but most people go into technical interviews unprepared. CodeVox gives you a realistic, AI-powered interview environment where you can:
 
-### 💻 **Live Coding Environment**
-- Monaco Editor integration
-- Real-time code execution
-- AI-powered code analysis and hints
-- Multiple programming languages
+- 🎤 **Practice speaking** your solutions out loud (just like real interviews)
+- 💻 **Code in real-time** with an embedded IDE and instant feedback
+- 📊 **Get honest scores** and detailed feedback on your performance
+- 🔒 **Stay private** — everything runs locally on your machine
+- 🆓 **Zero cost** — completely open-source with no subscriptions
 
-### 👁️ **Smart Proctoring**
-- Webcam-based monitoring
-- Face detection and tracking
-- Suspicious activity detection
+## ✨ **What Makes CodeVox Special**
 
-### 📊 **Comprehensive Analytics**
-- Detailed performance reports
-- Skill-based scoring
-- Comparative analysis
-- Export capabilities
+### 🎤 **Voice-First Interview Practice**
+- **Talk through your solutions** — practice explaining your thought process
+- **Real-time speech-to-text** with OpenAI Whisper — no typing required
+- **Natural conversation flow** — just like talking to a real interviewer
+- **Multi-language support** — practice in your preferred language
+
+### 🧠 **Intelligent Interview Agent**
+- **Adaptive questioning** — asks follow-ups based on your answers
+- **Role-specific scenarios** — tailored to your target job
+- **Dynamic difficulty** — adjusts based on your skill level
+- **Behavioral + technical** — complete interview practice
+
+### 💻 **Embedded Live Coding IDE**
+- **Monaco Editor** — the same editor used in VS Code
+- **Instant code execution** — run and test your solutions in real-time
+- **Multiple languages** — Python, JavaScript, Java, C++, and more
+- **AI code analysis** — get hints and optimization suggestions
+
+### 👁️ **Realistic Interview Simulation**
+- **Webcam monitoring** — practice being on camera
+- **Screen activity tracking** — simulates real proctored interviews
+- **Attention detection** — stay focused like in real interviews
+- **Integrity monitoring** — honest practice for honest improvement
+
+### 📊 **Honest Feedback & Scoring**
+- **Detailed scorecards** — know exactly where you stand
+- **Improvement suggestions** — specific areas to work on
+- **Progress tracking** — see your improvement over time
+- **Export reports** — share your progress with mentors
 
 ## 🏗️ **Architecture**
 
@@ -63,75 +82,77 @@ cd AI-HR-Interview-System
 | **Storage** | MinIO | File storage |
 | **Monitoring** | Face-API.js | Proctoring system |
 
-## 🚀 **Quick Start Options**
+## 🚀 **Setup Options**
 
-### Option 1: **Full AI System** (Recommended)
+### 🏆 **Ready to Practice** (Recommended)
 
 ```bash
-# Clone repository
+# Clone and start practicing immediately
 git clone https://github.com/Kenway45/AI-HR-Interview-System.git
 cd AI-HR-Interview-System
+./start_codevox.sh
+```
 
-# Start complete system with all AI features
-./start_system.sh
+**Perfect for:**
+- ✅ **Interview preparation** — full AI-powered practice sessions
+- ✅ **Voice practice** — real speech-to-text with Whisper
+- ✅ **Live coding** — embedded IDE with code execution
+- ✅ **Honest feedback** — detailed scoring and improvement areas
+
+### 🐳 **Full Production Setup**
+
+```bash
+# Complete infrastructure with all services
+./setup_production.sh
 ```
 
 **Features:**
-- ✅ Real AI speech-to-text
-- ✅ Local LLM for evaluation
-- ✅ Real code execution
-- ✅ Complete interview workflow
+- ✅ **Enterprise-grade** — all AI models (Whisper, LLaMA)
+- ✅ **Scalable** — microservices architecture
+- ✅ **Secure** — sandboxed code execution
+- ⏳ **Longer setup** — downloads AI models (~15 minutes)
 
-### Option 2: **Docker Deployment**
-
-```bash
-# Full production setup
-./setup_and_start.sh
-```
-
-**Features:**
-- ✅ All AI models (Whisper, LLaMA)
-- ✅ Judge0 code execution
-- ✅ Complete infrastructure
-- ⏳ Longer startup time
-
-### Option 3: **Development Mode**
+### ⚡ **Quick Demo Mode**
 
 ```bash
-# Quick development setup
-./quick_start.sh
+# Fast startup for exploration
+./quick_demo.sh
 ```
 
-**Features:**
-- ✅ Fast startup
-- ✅ Mock AI services
-- ✅ Full UI workflow
-- ✅ Perfect for testing
+**Great for:**
+- ✅ **Trying CodeVox** — mock AI for instant startup
+- ✅ **UI exploration** — see all features without AI setup
+- ✅ **Development** — modify and test changes quickly
+- ✅ **Low resource** — works on any machine
 
-## 📋 **Usage Guide**
+## 📈 **How to Practice with CodeVox**
 
-### 1. **Setup Interview**
-```bash
-# Upload job description and resume
-curl -X POST "http://localhost:8000/upload/jd" \
-     -H "Content-Type: multipart/form-data" \
-     -F "file=@job_description.pdf"
-```
+### 1. 📄 **Prepare Your Practice Session**
+- **Upload target job description** — CodeVox tailors questions to the role
+- **Upload your resume** — questions focus on your experience
+- **Select interview type** — behavioral, technical, or full interview
 
-### 2. **Start Interview Session**
-- Upload documents via web interface
-- AI generates contextual questions
-- Begin recorded interview
+### 2. 🎤 **Start Voice Interview**
+- **Grant microphone access** — practice speaking your answers
+- **Answer questions aloud** — AI transcribes in real-time
+- **Get follow-up questions** — just like a real interviewer
 
-### 3. **Coding Assessment**
-- Live coding environment
-- Real-time AI feedback
-- Code execution and testing
+### 3. 💻 **Live Coding Practice**
+- **Solve coding problems** in the embedded Monaco IDE
+- **Explain your approach** — talk through your solution
+- **Run and test code** — instant feedback on correctness
+- **Get AI hints** — when you're stuck (optional)
 
-### 4. **Generate Report**
-- Comprehensive analysis
-- Scoring and recommendations
-- Export options
+### 4. 📊 **Review Your Performance**
+- **Detailed scorecard** — technical skills, communication, problem-solving
+- **Specific feedback** — areas for improvement with examples
+- **Progress tracking** — see improvement over multiple sessions
+- **Export report** — share with mentors or keep for reference
+
+### 5. 🔁 **Practice Again & Improve**
+- **Retake interviews** — practice makes perfect
+- **Try different roles** — upload different job descriptions
+- **Focus on weak areas** — target specific skills for improvement
 
 ## 🔧 **Configuration**
 
@@ -189,31 +210,31 @@ npm install
 npm run dev
 ```
 
-### Project Structure
+### CodeVox Project Structure
 
 ```
-AI-HR-Interview-System/
-├── 📁 backend/              # FastAPI application
+CodeVox/
+├── 🎤 codevox-backend/        # FastAPI interview engine
 │   ├── 📁 app/
-│   │   ├── 📁 api/          # API endpoints
-│   │   ├── 📁 models/       # Database models
-│   │   ├── 📁 utils/        # Utilities
-│   │   ├── main_simple.py   # Simple backend
-│   │   ├── main_ai.py       # Full AI backend
-│   │   └── main_enhanced.py # Enhanced demo
+│   │   ├── 🎤 speech/        # Voice processing
+│   │   ├── 🧠 ai/            # Interview AI logic
+│   │   ├── 💻 coding/        # Code execution
+│   │   ├── 📊 scoring/       # Feedback engine
+│   │   └── 👁️ proctoring/    # Monitoring
 │   └── requirements.txt
-├── 📁 frontend/             # React application
+├── 🗺️ codevox-frontend/       # React practice interface
 │   ├── 📁 src/
-│   │   ├── 📁 components/   # React components
-│   │   ├── 📁 pages/        # Page components
-│   │   └── App.jsx
+│   │   ├── 🎤 VoiceInterview/  # Speech components
+│   │   ├── 💻 LiveCoding/     # IDE components
+│   │   ├── 📊 Scorecard/      # Results display
+│   │   └── 👁️ ProctorView/     # Monitoring UI
 │   └── package.json
-├── 📁 infra/                # Infrastructure
-│   ├── docker-compose.yml  # Full system
-│   ├── docker-compose-simple.yml # Simple setup
+├── 🐳 infrastructure/        # Docker & services
+│   ├── docker-compose.yml      # Full AI setup
+│   ├── docker-compose-demo.yml # Quick demo
 │   └── 📁 scripts/
-├── 📁 data/                 # Sample data
-└── 📄 start_system.sh      # One-click startup
+├── 📁 practice-data/           # Sample interviews
+└── 🚀 start_codevox.sh        # One-click practice
 ```
 
 ## 🚀 **API Reference**

@@ -1,4 +1,101 @@
-# Contributing to AI HR Interview System
+# Contributing to CodeVox
+
+> **"Voice-first interviews. Live coding. Honest scores."**
+
+We welcome contributions to CodeVox! This guide will help you contribute effectively to our open-source interview practice platform.
+
+## 🎆 **Mission**
+
+CodeVox helps people prepare for technical interviews through realistic, AI-powered practice sessions. Every contribution helps more people land their dream jobs!
+
+## 🚀 **Quick Start for Contributors**
+
+```bash
+# 1. Fork and clone
+git clone https://github.com/YOUR-USERNAME/AI-HR-Interview-System.git
+cd AI-HR-Interview-System
+
+# 2. Start development environment
+./quick_demo.sh
+
+# 3. Make changes and test
+# 4. Submit pull request
+```
+
+## 🏆 **Ways to Contribute**
+
+### 🎤 **Voice & Speech Features**
+- Improve speech recognition accuracy
+- Add multi-language support
+- Enhance audio quality processing
+- Better noise cancellation
+
+### 🧠 **AI Interview Engine**
+- More intelligent question generation
+- Better answer evaluation
+- Industry-specific interview scenarios
+- Difficulty adaptation algorithms
+
+### 💻 **Live Coding Experience**
+- Additional programming languages
+- Better code analysis and hints
+- Performance optimization suggestions
+- More realistic coding challenges
+
+### 📊 **Scoring & Feedback**
+- More accurate scoring algorithms
+- Detailed improvement suggestions
+- Progress tracking features
+- Export and sharing capabilities
+
+### 👁️ **Interview Simulation**
+- Enhanced proctoring features
+- Better attention tracking
+- Realistic interview environments
+- Stress simulation features
+
+## 🛠️ **Development Setup**
+
+### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- Git
+- Docker (optional, for full AI features)
+
+### Setup Options
+
+#### ⚡ **Quick Demo Setup** (Recommended for Contributors)
+```bash
+./quick_demo.sh  # Fast startup with mock AI
+```
+
+#### 🎤 **Full AI Setup** (For AI/ML Contributors)
+```bash
+./start_codevox.sh  # Real AI models
+```
+
+#### 🐳 **Production Setup** (For Infrastructure Contributors)
+```bash
+./setup_production.sh  # Complete Docker environment
+```
+
+### Manual Development Setup
+
+**Backend:**
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main_simple:app --reload
+```
+
+**Frontend:**
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 Thank you for your interest in contributing to the AI HR Interview System! This document provides guidelines and information for contributors.
 

@@ -1,5 +1,6 @@
 {
-  "name": "ai-hr-interview-frontend",
+  "name": "codevox-frontend",
+  "description": "CodeVox - Voice-first interviews. Live coding. Honest scores.",
   "private": true,
   "version": "1.0.0",
   "type": "module",

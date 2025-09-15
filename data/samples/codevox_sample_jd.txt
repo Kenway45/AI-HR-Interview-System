@@ -1,0 +1,78 @@
+Senior Software Engineer - AI/ML Platform
+
+Company: CodeVox Technologies
+Location: Remote-first (Global)
+Experience: 4+ years
+Salary: $120,000 - $180,000 + equity
+
+Job Description:
+CodeVox is revolutionizing interview preparation with AI-powered practice systems. We're seeking a passionate Senior Software Engineer to help build the future of career development technology. Join us in creating tools that help millions of people land their dream jobs.
+
+🎤 **What You'll Build:**
+- Speech recognition systems for technical interviews
+- Real-time AI evaluation engines
+- Live coding environments with instant feedback
+- Scalable interview simulation platforms
+- Advanced analytics and progress tracking
+
+🚀 **Key Responsibilities:**
+- Architect and develop AI-powered interview features
+- Build responsive, accessible frontend experiences
+- Design scalable backend services and APIs
+- Integrate machine learning models into production systems
+- Optimize real-time audio/video processing
+- Mentor junior developers and lead technical discussions
+- Collaborate with AI/ML researchers on model deployment
+
+💻 **Required Technical Skills:**
+- 4+ years of full-stack development experience
+- Expert-level Python (FastAPI, Django, or Flask)
+- Strong JavaScript/TypeScript and React expertise
+- Experience with real-time systems (WebSockets, WebRTC)
+- Database design with PostgreSQL or similar
+- Cloud platforms (AWS, GCP, Azure)
+- Containerization with Docker and Kubernetes
+- Version control with Git and CI/CD pipelines
+
+🧠 **AI/ML Experience (Nice to Have):**
+- Integration of speech-to-text models (Whisper, etc.)
+- Working with transformer models and LLMs
+- Experience with Hugging Face ecosystem
+- Computer vision for proctoring systems
+- MLOps and model deployment pipelines
+- Experience with PyTorch or TensorFlow
+
+🏆 **What Makes You Great:**
+- Passion for helping others succeed in their careers
+- Experience building developer tools or educational platforms
+- Understanding of interview processes and technical assessments
+- Strong empathy for user experience and accessibility
+- Ability to work in fast-paced, startup environment
+- Excellent communication skills for remote collaboration
+
+🎆 **Bonus Points:**
+- Open source contributions to AI/ML projects
+- Experience with voice/audio processing
+- Background in education technology (EdTech)
+- Understanding of bias and fairness in AI systems
+- Previous experience with real-time collaboration tools
+- Knowledge of multiple programming languages for assessments
+
+🎁 **What We Offer:**
+- Competitive salary with significant equity upside
+- Remote-first culture with flexible hours
+- Top-tier health, dental, and vision insurance
+- $3,000 annual learning and development budget
+- Latest MacBook Pro and home office setup stipend
+- Unlimited PTO and quarterly company retreats
+- Direct impact on helping people advance their careers
+
+🎤 **Our Mission:**
+We believe everyone deserves a fair shot at their dream job. By building the most realistic and helpful interview practice platform, we're democratizing access to career advancement. Your code will directly help people gain confidence, improve their skills, and land life-changing opportunities.
+
+🚀 **Ready to Change Careers Forever?**
+Join CodeVox and help us build the future of interview preparation. Apply now and be part of a team that's making career success accessible to everyone!
+
+---
+
+*CodeVox is an equal opportunity employer committed to diversity and inclusion. We welcome applications from all qualified candidates regardless of race, gender, age, religion, sexual orientation, or disability status.*
