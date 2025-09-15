@@ -1,0 +1,13 @@
+FROM alpine:latest
+
+# Install build dependencies
+RUN apk add --no-cache \
+    build-base \
+    git \
+    cmake
+
+# Set working directory
+WORKDIR /tmp
+
+# This will be run as a one-time setup container
+# The actual build happens in the command specified in docker-compose.yml

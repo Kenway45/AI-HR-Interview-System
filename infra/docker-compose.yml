@@ -1,0 +1,216 @@
+version: "3.8"
+
+services:
+  # Backend API
+  backend:
+    build: ../backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - minio
+      - judge0
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/ai_hr_interview
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      - MINIO_BUCKET=ai-hr-interview
+      - JUDGE0_URL=http://judge0:2358
+      - TEXTGEN_URL=http://textgen:5000
+      - WHISPER_BIN=/opt/whispercpp/main
+      - WHISPER_MODEL=/models/ggml-base.en.bin
+      - STT_ENGINE=whisper
+      - LLM_ENGINE=textgen
+    volumes:
+      - whisper_models:/models
+      - whisper_bin:/opt/whispercpp
+    networks:
+      - ai-hr-network
+
+  # Frontend React App
+  frontend:
+    build: ../frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - ai-hr-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=ai_hr_interview
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - ai-hr-network
+
+  # MinIO for file storage
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - ai-hr-network
+
+  # Judge0 for code execution
+  judge0:
+    image: judge0/judge0:1.13.0
+    volumes:
+      - ./judge0.conf:/judge0.conf:ro
+    ports:
+      - "2358:2358"
+    privileged: true
+    environment:
+      - REDIS_HOST=judge0-redis
+      - POSTGRES_HOST=judge0-db
+      - POSTGRES_DB=judge0
+      - POSTGRES_USER=judge0
+      - POSTGRES_PASSWORD=YourPasswordHere
+    depends_on:
+      - judge0-db
+      - judge0-redis
+    networks:
+      - ai-hr-network
+
+  # Judge0 Database
+  judge0-db:
+    image: postgres:13.0
+    env_file: ./judge0.conf
+    environment:
+      - POSTGRES_DB=judge0
+      - POSTGRES_USER=judge0
+      - POSTGRES_PASSWORD=YourPasswordHere
+    volumes:
+      - judge0_postgres_data:/var/lib/postgresql/data/
+    networks:
+      - ai-hr-network
+
+  # Judge0 Redis
+  judge0-redis:
+    image: redis:6.0
+    command: 
+      - bash
+      - -c
+      - 'redis-server --appendonly yes --requirepass "$$REDIS_PASSWORD"'
+    env_file: ./judge0.conf
+    environment:
+      - REDIS_PASSWORD=YourPasswordHere
+    volumes:
+      - judge0_redis_data:/data
+    networks:
+      - ai-hr-network
+
+  # Text Generation WebUI (for LLM)
+  textgen:
+    image: atinoda/text-generation-webui:default
+    ports:
+      - "5000:5000"
+    environment:
+      - CLI_ARGS=--api --listen-host 0.0.0.0 --listen-port 5000
+    volumes:
+      - textgen_models:/app/models
+      - textgen_characters:/app/characters
+      - textgen_presets:/app/presets
+    networks:
+      - ai-hr-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # Whisper.cpp HTTP Server
+  whisper-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.whisper
+    ports:
+      - "8001:8001"
+    volumes:
+      - whisper_models:/models
+      - whisper_bin:/opt/whispercpp
+    environment:
+      - MODEL_PATH=/models/ggml-base.en.bin
+    networks:
+      - ai-hr-network
+
+  # Model downloader (init container)
+  model-downloader:
+    image: alpine/curl:latest
+    volumes:
+      - whisper_models:/models
+      - textgen_models:/textgen_models
+    command: >
+      sh -c "
+        echo 'Downloading AI models...'
+        
+        # Download Whisper model
+        if [ ! -f /models/ggml-base.en.bin ]; then
+          echo 'Downloading Whisper base.en model...'
+          curl -L 'https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin' -o /models/ggml-base.en.bin
+        fi
+        
+        # Download a small LLM model for text-generation-webui
+        if [ ! -d /textgen_models/llama-2-7b-chat.Q4_K_M.gguf ]; then
+          echo 'Downloading Llama 2 7B Chat model (quantized)...'
+          mkdir -p /textgen_models
+          curl -L 'https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf' -o '/textgen_models/llama-2-7b-chat.Q4_K_M.gguf'
+        fi
+        
+        echo 'Model download complete!'
+      "
+    networks:
+      - ai-hr-network
+
+  # Whisper.cpp builder (init container)
+  whisper-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile.whisper-builder
+    volumes:
+      - whisper_bin:/opt/whispercpp
+    command: >
+      sh -c "
+        if [ ! -f /opt/whispercpp/main ]; then
+          echo 'Building whisper.cpp...'
+          git clone https://github.com/ggerganov/whisper.cpp.git /tmp/whisper
+          cd /tmp/whisper
+          make
+          cp main /opt/whispercpp/
+          echo 'Whisper.cpp build complete!'
+        else
+          echo 'Whisper.cpp already built'
+        fi
+      "
+
+volumes:
+  postgres_data:
+  minio_data:
+  judge0_postgres_data:
+  judge0_redis_data:
+  whisper_models:
+  whisper_bin:
+  textgen_models:
+  textgen_characters:
+  textgen_presets:
+
+networks:
+  ai-hr-network:
+    driver: bridge

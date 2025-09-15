@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  # Backend API
+  backend:
+    build: ../backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - minio
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/ai_hr_interview
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      - MINIO_BUCKET=ai-hr-interview
+      - JUDGE0_URL=http://judge0:2358
+      - STT_ENGINE=mock
+      - LLM_ENGINE=mock
+    networks:
+      - ai-hr-network
+
+  # Frontend React App
+  frontend:
+    build: ../frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - ai-hr-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=ai_hr_interview
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - ai-hr-network
+
+  # MinIO for file storage
+  minio:
+    image: quay.io/minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - ai-hr-network
+
+volumes:
+  postgres_data:
+  minio_data:
+
+networks:
+  ai-hr-network:
+    driver: bridge

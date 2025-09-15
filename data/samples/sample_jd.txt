@@ -1,0 +1,69 @@
+Senior Full Stack Developer - AI/ML Team
+
+Company: TechCorp AI Solutions
+Location: Remote / San Francisco, CA
+Type: Full-time
+Experience Level: 5+ years
+
+Job Description:
+
+We are seeking a highly skilled Senior Full Stack Developer to join our innovative AI/ML team. The ideal candidate will have extensive experience building scalable web applications and a passion for integrating cutting-edge artificial intelligence technologies.
+
+Key Responsibilities:
+
+• Design and develop full-stack web applications using modern frameworks
+• Implement and integrate machine learning models into production systems  
+• Build RESTful APIs and microservices architecture
+• Collaborate with data scientists to productionize AI/ML algorithms
+• Optimize application performance and ensure scalability
+• Mentor junior developers and contribute to technical decision-making
+• Participate in code reviews and maintain high code quality standards
+• Work with DevOps teams to implement CI/CD pipelines
+
+Required Technical Skills:
+
+• 5+ years of experience in full-stack web development
+• Proficiency in Python and JavaScript/TypeScript
+• Experience with React, Node.js, and modern web frameworks
+• Strong knowledge of databases (PostgreSQL, MongoDB)
+• Experience with cloud platforms (AWS, Azure, or GCP)
+• Familiarity with containerization (Docker, Kubernetes)
+• Understanding of machine learning frameworks (TensorFlow, PyTorch)
+• Experience with Git, CI/CD, and agile development practices
+• Knowledge of RESTful API design and microservices architecture
+
+Preferred Qualifications:
+
+• Experience with FastAPI, Django, or similar Python frameworks
+• Knowledge of data engineering tools and ETL pipelines
+• Experience with Redis, Elasticsearch, or similar technologies
+• Understanding of ML model deployment and monitoring
+• Bachelor's degree in Computer Science or related field
+• Experience with real-time systems and WebSocket programming
+
+Soft Skills:
+
+• Strong problem-solving and analytical thinking abilities
+• Excellent communication and collaboration skills
+• Ability to work independently and manage multiple projects
+• Leadership experience and mentoring capabilities
+• Adaptability to rapidly changing technology landscape
+
+What We Offer:
+
+• Competitive salary range: $130,000 - $180,000
+• Comprehensive health, dental, and vision insurance
+• 401(k) with company matching
+• Flexible work arrangements and remote work options
+• Professional development budget and conference attendance
+• Stock options and equity participation
+• Unlimited PTO policy
+• State-of-the-art equipment and technology
+
+About TechCorp AI Solutions:
+
+TechCorp is a leading AI technology company focused on building intelligent solutions that transform industries. Our team of 200+ engineers and data scientists work on cutting-edge projects ranging from natural language processing to computer vision applications. We pride ourselves on maintaining a collaborative, innovative culture where every team member can make a meaningful impact.
+
+Application Process:
+
+Interested candidates should submit their resume along with a cover letter highlighting relevant experience with AI/ML technologies. We are an equal opportunity employer committed to diversity and inclusion.
